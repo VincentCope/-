@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+
+function palindrome(str) {
+  str = str.toLowerCase();
+  str =str.replace(/\s/g,"");
+  str = str.replace(/[^a-z0-9]/g,"");		//以上步骤将空格、符号转换成空字符串
+  var half=Math.floor(str.length/2);		//回文就是反过来的字母和顺过来看是一样的
+  for(var i=1; i <= half; i++){
+  	if(str[i-1] !== str[str.length - i]){
+  		return false;
+  	}
+  }
+  return true;
+}
+
+
+var a= palindrome("A man, a plan, a canal. Panama");
+alert(a);
+	</script>
+</body>
+</html>

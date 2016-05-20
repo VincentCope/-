@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>返回剔除元素过后的数组</title>
+</head>
+<body>
+	<script>
+		function destroyer(arr) {
+  			// Remove all the values
+  			var args = Array.prototype.slice.call(arguments, 1);	//排除第一个元素，并将arguments clone到一个新的数组里
+  			var result=arr.filter(function(item){
+  				return args.indexOf(item) === -1;		//如果arr的数组元素在args数组汇中返回的位置为-1，就说明arr的数组元素没在args里
+  			})
+  			return result;
+		}
+		destroyer([1, 2, 3, 1, 2, 3], 2, 3);
+
+
+
+		//返回num所在的索引
+
+		function getIndexToIns(arr, num) {
+  			// Find my place in this sorted array.
+  			var index = 0;
+  			arr = arr.sort(function(a,b){return a-b});
+  			for(var i =arr.length-1; i >= 0; i--){
+  				if(num > arr[i]){
+  					index = i+1;
+  					break;
+  				}else{
+  					index = i;
+  				}
+  			}
+  			console.log(index);
+  			return index;
+		}
+
+getIndexToIns([10, 20, 30, 40, 50], 35);
+	</script>
+</body>
+</html>

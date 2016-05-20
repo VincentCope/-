@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>将一维数组以提供的个数转化为二维数组</title>
+</head>
+<body>
+	<script>
+		function chunkArrayInGroups(arr, size) {
+  			// Break it up.
+  			var result=[];
+  			result.push(arr.slice(0,size))
+  			for(var i=size;i<arr.length;i+=size){
+  				result.push(arr.slice(i,i+size));
+  			}
+  			return result;
+		}
+
+chunkArrayInGroups(["a", "b", "c", "d"], 2);
+	</script>
+</body>
+</html>

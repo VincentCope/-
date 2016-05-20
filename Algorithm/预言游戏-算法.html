@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>prophesy</title>
+		<style>
+			html,body,div,table,tr,td{
+	margin:0;
+	padding:0;
+	box-sizing:border-box;
+}
+html{
+	position: relative;
+	height:100%;
+}
+body,.wrapper{
+	width:100%;
+	background: deepskyblue;
+}
+#main{
+	margin:0 auto;
+	width:100%;
+	padding:10%;
+}
+#main table{
+	color:#fff;
+	font-size: 18px;
+	text-align: center;
+	margin:0 auto;
+	width:100%;
+}
+#main table tbody tr{
+	line-height:30px;
+}
+#main table tbody tr td{
+	width:10%;
+}
+span.sa,span.sb{
+	display: block;
+}
+span.sa{
+	color:red;
+	font-size:1.5rem;
+}
+span.sb{
+	color:gray;
+	font-size: 1.25rem;;
+}
+
+#prompt{
+	background:rgba(255,0,0,.5);
+	width:100%;
+	height:150px;
+	padding-top:50px;
+	top:25%;
+	position:absolute;
+	display: none;
+	text-align: center;
+}
+#prompt .span1,#prompt .span2{
+	font-size:1.5rem;
+	color:#FFFFFF;
+}
+.step{
+	height:80px;
+	width:100%;
+	position: absolute;
+	bottom:20px;
+	background:red;
+	text-align: center;
+}
+.step a{
+	line-height: 80px;
+	width:100%;
+	color:#FFFFFF;
+	font-size: 1.25rem;
+	text-decoration: none;
+}
+.result{
+	font-size: 15rem;
+	color:red;
+	text-align: center;
+	padding-top:20%;
+}
+		</style>
+	</head>
+	<body>
+		<div class="wrapper">
+			<div id="main">
+				<table>
+					<tbody>
+						<tr>
+				<td><span class="sa" id="sa0">&#133;</span><span class="sb" id="sb0">&#63;</span></td>
+				<td><span class="sa" id="sa1">&#133;</span><span class="sb" id="sb1">&#63;</span></td>
+				<td><span class="sa" id="sa2">&#133;</span><span class="sb" id="sb2">&#63;</span></td>
+				<td><span class="sa" id="sa3">&#133;</span><span class="sb" id="sb3">&#63;</span></td>
+				<td><span class="sa" id="sa4">&#133;</span><span class="sb" id="sb4">&#63;</span></td>
+				<td><span class="sa" id="sa5">&#133;</span><span class="sb" id="sb5">&#63;</span></td>
+				<td><span class="sa" id="sa6">&#133;</span><span class="sb" id="sb6">&#63;</span></td>
+				<td><span class="sa" id="sa7">&#133;</span><span class="sb" id="sb7">&#63;</span></td>
+				<td><span class="sa" id="sa8">&#133;</span><span class="sb" id="sb8">&#63;</span></td>
+				<td><span class="sa" id="sa9">&#133;</span><span class="sb" id="sb9">&#63;</span></td>
+			</tr>
+			<tr>
+				<td><span class="sa" id="sa10">&#133;</span><span class="sb" id="sb10">&#63;</span></td>
+				<td><span class="sa" id="sa11">&#133;</span><span class="sb" id="sb11">&#63;</span></td>
+				<td><span class="sa" id="sa12">&#133;</span><span class="sb" id="sb12">&#63;</span></td>
+				<td><span class="sa" id="sa13">&#133;</span><span class="sb" id="sb13">&#63;</span></td>
+				<td><span class="sa" id="sa14">&#133;</span><span class="sb" id="sb14">&#63;</span></td>
+				<td><span class="sa" id="sa15">&#133;</span><span class="sb" id="sb15">&#63;</span></td>
+				<td><span class="sa" id="sa16">&#133;</span><span class="sb" id="sb16">&#63;</span></td>
+				<td><span class="sa" id="sa17">&#133;</span><span class="sb" id="sb17">&#63;</span></td>
+				<td><span class="sa" id="sa18">&#133;</span><span class="sb" id="sb18">&#63;</span></td>
+				<td><span class="sa" id="sa19">&#133;</span><span class="sb" id="sb19">&#63;</span></td>
+			</tr>
+			<tr>
+				<td><span class="sa" id="sa20">&#133;</span><span class="sb" id="sb20">&#63;</span></td>
+				<td><span class="sa" id="sa21">&#133;</span><span class="sb" id="sb21">&#63;</span></td>
+				<td><span class="sa" id="sa22">&#133;</span><span class="sb" id="sb22">&#63;</span></td>
+				<td><span class="sa" id="sa23">&#133;</span><span class="sb" id="sb23">&#63;</span></td>
+				<td><span class="sa" id="sa24">&#133;</span><span class="sb" id="sb24">&#63;</span></td>
+				<td><span class="sa" id="sa25">&#133;</span><span class="sb" id="sb25">&#63;</span></td>
+				<td><span class="sa" id="sa26">&#133;</span><span class="sb" id="sb26">&#63;</span></td>
+				<td><span class="sa" id="sa27">&#133;</span><span class="sb" id="sb27">&#63;</span></td>
+				<td><span class="sa" id="sa28">&#133;</span><span class="sb" id="sb28">&#63;</span></td>
+				<td><span class="sa" id="sa29">&#133;</span><span class="sb" id="sb29">&#63;</span></td>
+			</tr>
+			<tr>
+				<td><span class="sa" id="sa30">&#133;</span><span class="sb" id="sb30">&#63;</span></td>
+				<td><span class="sa" id="sa31">&#133;</span><span class="sb" id="sb31">&#63;</span></td>
+				<td><span class="sa" id="sa32">&#133;</span><span class="sb" id="sb32">&#63;</span></td>
+				<td><span class="sa" id="sa33">&#133;</span><span class="sb" id="sb33">&#63;</span></td>
+				<td><span class="sa" id="sa34">&#133;</span><span class="sb" id="sb34">&#63;</span></td>
+				<td><span class="sa" id="sa35">&#133;</span><span class="sb" id="sb35">&#63;</span></td>
+				<td><span class="sa" id="sa36">&#133;</span><span class="sb" id="sb36">&#63;</span></td>
+				<td><span class="sa" id="sa37">&#133;</span><span class="sb" id="sb37">&#63;</span></td>
+				<td><span class="sa" id="sa38">&#133;</span><span class="sb" id="sb38">&#63;</span></td>
+				<td><span class="sa" id="sa39">&#133;</span><span class="sb" id="sb39">&#63;</span></td>
+			</tr>
+			<tr>
+				<td><span class="sa" id="sa40">&#133;</span><span class="sb" id="sb40">&#63;</span></td>
+				<td><span class="sa" id="sa41">&#133;</span><span class="sb" id="sb41">&#63;</span></td>
+				<td><span class="sa" id="sa42">&#133;</span><span class="sb" id="sb42">&#63;</span></td>
+				<td><span class="sa" id="sa43">&#133;</span><span class="sb" id="sb43">&#63;</span></td>
+				<td><span class="sa" id="sa44">&#133;</span><span class="sb" id="sb44">&#63;</span></td>
+				<td><span class="sa" id="sa45">&#133;</span><span class="sb" id="sb45">&#63;</span></td>
+				<td><span class="sa" id="sa46">&#133;</span><span class="sb" id="sb46">&#63;</span></td>
+				<td><span class="sa" id="sa47">&#133;</span><span class="sb" id="sb47">&#63;</span></td>
+				<td><span class="sa" id="sa48">&#133;</span><span class="sb" id="sb48">&#63;</span></td>
+				<td><span class="sa" id="sa49">&#133;</span><span class="sb" id="sb49">&#63;</span></td>
+			</tr>
+			<tr>
+				<td><span class="sa" id="sa50">&#133;</span><span class="sb" id="sb50">&#63;</span></td>
+				<td><span class="sa" id="sa51">&#133;</span><span class="sb" id="sb51">&#63;</span></td>
+				<td><span class="sa" id="sa52">&#133;</span><span class="sb" id="sb52">&#63;</span></td>
+				<td><span class="sa" id="sa53">&#133;</span><span class="sb" id="sb53">&#63;</span></td>
+				<td><span class="sa" id="sa54">&#133;</span><span class="sb" id="sb54">&#63;</span></td>
+				<td><span class="sa" id="sa55">&#133;</span><span class="sb" id="sb55">&#63;</span></td>
+				<td><span class="sa" id="sa56">&#133;</span><span class="sb" id="sb56">&#63;</span></td>
+				<td><span class="sa" id="sa57">&#133;</span><span class="sb" id="sb57">&#63;</span></td>
+				<td><span class="sa" id="sa58">&#133;</span><span class="sb" id="sb58">&#63;</span></td>
+				<td><span class="sa" id="sa59">&#133;</span><span class="sb" id="sb59">&#63;</span></td>
+			</tr>
+			<tr>
+				<td><span class="sa" id="sa60">&#133;</span><span class="sb" id="sb60">&#63;</span></td>
+				<td><span class="sa" id="sa61">&#133;</span><span class="sb" id="sb61">&#63;</span></td>
+				<td><span class="sa" id="sa62">&#133;</span><span class="sb" id="sb62">&#63;</span></td>
+				<td><span class="sa" id="sa63">&#133;</span><span class="sb" id="sb63">&#63;</span></td>
+				<td><span class="sa" id="sa64">&#133;</span><span class="sb" id="sb64">&#63;</span></td>
+				<td><span class="sa" id="sa65">&#133;</span><span class="sb" id="sb65">&#63;</span></td>
+				<td><span class="sa" id="sa66">&#133;</span><span class="sb" id="sb66">&#63;</span></td>
+				<td><span class="sa" id="sa67">&#133;</span><span class="sb" id="sb67">&#63;</span></td>
+				<td><span class="sa" id="sa68">&#133;</span><span class="sb" id="sb68">&#63;</span></td>
+				<td><span class="sa" id="sa69">&#133;</span><span class="sb" id="sb69">&#63;</span></td>
+			</tr>
+			<tr>
+				<td><span class="sa" id="sa70">&#133;</span><span class="sb" id="sb70">&#63;</span></td>
+				<td><span class="sa" id="sa71">&#133;</span><span class="sb" id="sb71">&#63;</span></td>
+				<td><span class="sa" id="sa72">&#133;</span><span class="sb" id="sb72">&#63;</span></td>
+				<td><span class="sa" id="sa73">&#133;</span><span class="sb" id="sb73">&#63;</span></td>
+				<td><span class="sa" id="sa74">&#133;</span><span class="sb" id="sb74">&#63;</span></td>
+				<td><span class="sa" id="sa75">&#133;</span><span class="sb" id="sb75">&#63;</span></td>
+				<td><span class="sa" id="sa76">&#133;</span><span class="sb" id="sb76">&#63;</span></td>
+				<td><span class="sa" id="sa77">&#133;</span><span class="sb" id="sb77">&#63;</span></td>
+				<td><span class="sa" id="sa78">&#133;</span><span class="sb" id="sb78">&#63;</span></td>
+				<td><span class="sa" id="sa79">&#133;</span><span class="sb" id="sb79">&#63;</span></td>
+			</tr>
+			<tr>
+				<td><span class="sa" id="sa80">&#133;</span><span class="sb" id="sb80">&#63;</span></td>
+				<td><span class="sa" id="sa81">&#133;</span><span class="sb" id="sb81">&#63;</span></td>
+				<td><span class="sa" id="sa82">&#133;</span><span class="sb" id="sb82">&#63;</span></td>
+				<td><span class="sa" id="sa83">&#133;</span><span class="sb" id="sb83">&#63;</span></td>
+				<td><span class="sa" id="sa84">&#133;</span><span class="sb" id="sb84">&#63;</span></td>
+				<td><span class="sa" id="sa85">&#133;</span><span class="sb" id="sb85">&#63;</span></td>
+				<td><span class="sa" id="sa86">&#133;</span><span class="sb" id="sb86">&#63;</span></td>
+				<td><span class="sa" id="sa87">&#133;</span><span class="sb" id="sb87">&#63;</span></td>
+				<td><span class="sa" id="sa88">&#133;</span><span class="sb" id="sb88">&#63;</span></td>
+				<td><span class="sa" id="sa89">&#133;</span><span class="sb" id="sb89">&#63;</span></td>
+			</tr>
+			<tr>
+				<td><span class="sa" id="sa90">&#133;</span><span class="sb" id="sb90">&#63;</span></td>
+				<td><span class="sa" id="sa91">&#133;</span><span class="sb" id="sb91">&#63;</span></td>
+				<td><span class="sa" id="sa92">&#133;</span><span class="sb" id="sb92">&#63;</span></td>
+				<td><span class="sa" id="sa93">&#133;</span><span class="sb" id="sb93">&#63;</span></td>
+				<td><span class="sa" id="sa94">&#133;</span><span class="sb" id="sb94">&#63;</span></td>
+				<td><span class="sa" id="sa95">&#133;</span><span class="sb" id="sb95">&#63;</span></td>
+				<td><span class="sa" id="sa96">&#133;</span><span class="sb" id="sb96">&#63;</span></td>
+				<td><span class="sa" id="sa97">&#133;</span><span class="sb" id="sb97">&#63;</span></td>
+				<td><span class="sa" id="sa98">&#133;</span><span class="sb" id="sb98">&#63;</span></td>
+				<td><span class="sa" id="sa99">&#133;</span><span class="sb" id="sb99">&#63;</span></td>
+			</tr>
+					</tbody>
+				</table>
+			</div>
+			<div id="prompt"></div>
+			<div class="step">
+				<a href="javascript:;" id="btn" onclick="startGame()">开始游戏</a>
+			</div>
+		</div>
+		<script>
+			var all={
+				numArray: [],
+				numIndex: 0,
+				charactor: ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'],
+				stepPrompt: ["<span class='span1'>在心中想一个10-99之间的数</span><br /><span class='span2'>如：11</span>",
+									 "<span class='span1'>用这个数减去个位和十位之和</span><br /><span class='span2'>如：11-(1+1)=9</span>",
+									 "<span class='span1'>最后得到一个数</span><br /><span class='span2'>9</span>",
+									 "<span class='span1'>请牢记这个数<br />在表格中找出这个数对应的字母</span>"
+									 ],
+				timer1: '',
+				timer2: '',
+				step: 0,
+				waitNum: 5
+			}
+			var btn=document.getElementById('btn');
+			var prom=document.getElementById('prompt');
+			var main=document.getElementById('main');
+			
+			for(var i=0;i<100;i++){
+					all.numArray[i]=i;
+				}
+			
+			all.numArray.sort(function(){return 0.5-Math.random();});
+			console.log(all.numArray);
+			var special=all.charactor[Math.floor(Math.random()*26)];
+			function show(){
+				if(all.numIndex<=99){
+					var sa=document.getElementById('sa'+all.numIndex);
+					var sb=document.getElementById('sb'+all.numIndex);
+					if(all.numArray[all.numIndex] % 9 === 0){
+						sa.innerText=special;
+						sb.innerText=all.numArray[all.numIndex];
+					}else{
+						var normal=all.charactor[Math.floor(Math.random()*26)];
+						sa.innerText=normal;
+						sb.innerText=all.numArray[all.numIndex];
+					}
+				}else{
+					clearInterval(all.timer1);
+				}
+				all.numIndex++;
+			}
+			
+			function startGame(){
+				if(all.step == 0){
+					prom.style.display='block';
+					prom.innerHTML=all.stepPrompt[0];
+					btn.innerText='下一步';
+				}else if(all.step == 1){
+					prom.style.display='block';
+					prom.innerHTML=all.stepPrompt[1];
+					btn.innerText='下一步';
+				}else if(all.step == 2){
+					prom.style.display='block';
+					prom.innerHTML=all.stepPrompt[2];
+					btn.innerText='下一步';
+				}else if(all.step == 3){
+					prom.style.display='block';
+					prom.innerHTML=all.stepPrompt[3];
+					btn.innerText='下一步';
+				}else if(all.step == 4){
+					prom.style.display='none';
+					main.style.display='block';
+					all.timer1=setInterval('show()',10);
+				}else if(all.step == 5){
+					all.timer2=setInterval('wait()',1000);
+				}else if(all.step == 6){
+					location.reload();
+				}
+				all.step++;
+			}
+			
+			function wait(){
+				if(all.waitNum == 0){
+					clearInterval(all.timer2);
+					main.innerHTML="<div class='result'>"+special+"</div>";
+					btn.innerText='再来一次';
+				}else{
+					btn.innerHTML="请盯住这个字母五秒钟"+">>>  "+"<span style='color:#fff;'>"+all.waitNum+"</span>";
+				}
+				all.waitNum--;
+			}
+			
+		</script>
+	</body>
+</html>

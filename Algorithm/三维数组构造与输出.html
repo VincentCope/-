@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>三维数组输出</title>
+</head>
+<body>
+	<script>
+	(function(){
+		var arr=[];	
+		for (var i = 0; i < 3; i++) {
+			arr[i]=[];
+			for(var j=0;j<3;j++){
+				arr[i][j]=[];	
+				for(var z=0;z<3;z++){
+					arr[i][j][z]=i+j+z;
+				}
+			}
+		};
+
+		for(var i = 0; i<arr.length;i++){
+			for(var j=0;j<arr[i].length;j++){
+				for(var z=0;z<arr[i][j].length;z++){
+					console.log(arr[i][j]);
+				}
+			}
+		}
+	})()
+	</script>
+</body>
+</html>

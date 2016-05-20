@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>检查字符串是否以给定字符串结尾</title>
+</head>
+<body>
+	<script>
+		function confirmEnding(str, target) {
+	  		// "Never give up and good luck will find you."
+	  		// -- Falcor
+	  		var len=target.length;
+	  		var last =str.substr(-len)
+	  		if(last === target){
+	  			return true;
+	  		}else{
+	  			return false;
+	  		}
+		}
+
+confirmEnding("Bastian", "n");
+	</script>
+</body>
+</html>

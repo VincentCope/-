@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>凯撒密码</title>
+</head>
+<body>
+	<script>
+		function rot13(str,rot) { // LBH QVQ VG!
+  			str = str.toUpperCase();
+  			var arr= [],code,result='';
+  			for(var i = 0; i<str.length ; i++){
+  				code = str.charCodeAt(i);
+  				if(code > 64 && code < 91){
+  					code = (code + rot) % 91;
+  					if(code<65){code+=65;}
+  				}
+  				arr.push(code);
+  			}
+  			for(var j=0;j<arr.length;j++){
+  				result+=String.fromCharCode(arr[j]);
+  			}
+  			console.log(str);
+  			console.log(result);
+		}
+
+// Change the inputs below to test
+rot13("SERR PBQR PNZC",13);
+	</script>
+</body>
+</html>

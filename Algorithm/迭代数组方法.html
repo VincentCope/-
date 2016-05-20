@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>迭代数组函数</title>
+</head>
+<body>
+	<script>
+	(function(){
+		var arr=[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20];
+		var isEven=function(x){
+			console.log(x);
+		return (x % 2 === 0);
+	}
+
+	//every方法，迭代数组中的元素，只到返回false
+	arr.every(isEven);
+
+	//some方法，只到返回true
+	arr.some(isEven);
+
+	//forEach,迭代整个数组
+	arr.forEach(isEven);
+
+	//map方法，返回新数组
+	var newMap=arr.map(isEven);
+	console.log(newMap);
+
+	//filter方法由返回true的数组元素组成
+	var newFilter=arr.filter(isEven);
+	console.log(newFilter);
+	
+	//reduce方法
+	var newReduce=arr.reduce(function(previous,current,index){
+		return previous+current;
+	});
+	console.log(newReduce);
+
+	})()
+
+	</script>
+</body>
+</html>

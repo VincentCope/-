@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title Case a Sentence</title>
+</head>
+<body>
+	<script>
+	//将每个首字母大写的思路为将首字母放入一个数组，后面的放入一个数组，然后通过字符串连接把两个数组拼接在一起，最后用空格把这个数组拼起来
+		function titleCase(str) {
+			var arr=[],fWord=[],result=[];
+			str = str.toLowerCase();
+			str = str.split(" ");
+			for(var i = 0; i<str.length; i++){
+				arr.push(str[i].slice(1));
+				fWord.push(str[i].slice(0,1).toUpperCase());
+				result.push(fWord[i].toString() + arr[i].toString());
+			}
+			result= result.join(" ");
+  			return result;
+		}
+
+		titleCase("I'm a little tea pot");
+	</script>
+</body>
+</html>

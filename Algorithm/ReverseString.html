@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Reverse String</title>
+</head>
+<body>
+	<script>
+	//反转字符串排序
+		function ReverseStr(str){
+			var array=[];
+			for(var i = 0;i<str.length;i++){
+				array.push(str.charAt(i));
+			}
+			var reverseArray = array.reverse();
+			str = reverseArray.join("");
+			return str;
+		}
+
+		var result=ReverseStr("hello, my fresh world!");
+		console.log(result);
+	</script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Factorialize a Number</title>
+</head>
+<body>
+	<script>
+	function factorialize(num) {
+	  if(num <= 1 && num >-1){
+	    num = 1;
+	    return num;
+	  }else {
+	    num = num * factorialize(num-1);
+	  }
+	  return num;
+	}
+	console.log(factorialize(1));
+
+
+//完备版
+function a(num){
+	if(num <=-1){
+		alert("请输入非负整数");
+	}else if(num <=1){
+		return 1;
+	}else{
+		return num * factorialize(num-1);
+	}
+	
+}
+
+
+console.log(a(100));
+	</script>
+</body>
+</html>
