@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Roman Numeral Converter</title>
+</head>
+<body>
+	<script>
+		//0-3999
+		function convertToRoman(num) {
+			var numeralCodes = [["","I","II","III","IV","V","VI","VII","VIII","IX"],         // Ones
+	                			["","X","XX","XXX", "XL", "L", "LX", "LXX", "LXXX", "XC"],   // Tens
+	                			["","C","CC","CCC","CD","D","DC","DCC","DCCC","CM"],   		 // Hundreds
+                      			["","M","MM","MMM"]];    									 // THousands
+
+			var numeral = "";
+			var digits = num.toString().split('').reverse();
+			console.log(digits);
+			for (var i=0; i < digits.length; i++){
+			    numeral = numeralCodes[i][parseInt(digits[i])] + numeral;
+			}
+			return numeral;  
+		}
+		alert(convertToRoman(3999));
+	</script>
+</body>
+</html>

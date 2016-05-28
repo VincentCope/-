@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Diff two array</title>
+</head>
+<body>
+	<script>
+		function diffArray(arr1, arr2) {
+		  var array = arr1.concat(arr2);
+		  var newArr = [];
+		  for(var i=0;i<array.length;i++){
+		    if(arr1.indexOf(array[i]) === -1){
+		      newArr.push(array[i]);
+		    }
+		    if(arr2.indexOf(array[i]) === -1){
+		      newArr.push(array[i]);
+		    }
+		  }
+		  // Same, same; but different.
+		  return newArr;
+		}
+
+		diffArray([1, 2, 3, 5], [1, 2, 3, 4, 5]);
+	</script>
+</body>
+</html>
