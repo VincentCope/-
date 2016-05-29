@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+	/*
+		目的：用after替换str中的before，如果before首字母是大写的，则after也要大写，
+		forEach迭代arr数组，如果其中一项和before相等，则判断其首字母是否大写。如果是就将after的首字母大写
+	*/
+
+		function myReplace(str, before, after) {
+  			var arr = str.split(" ");
+  			arr.forEach(function(item,index){
+  				if(item === before){
+  					if(item.charAt(0).match(/^[A-Z]$/)){
+  						var add=after.charAt(0).toUpperCase();
+  						after = add+after.slice(1);
+  					}
+  					arr.splice(index,1,after);
+  				}
+  			});
+  			str = arr.join(" ");
+  			console.log(str);
+  			return str;
+		}
+
+		myReplace("A quick brown fox Jumped over the lazy dog", "Jumped", "leaped");
+	</script>
+</body>
+</html>

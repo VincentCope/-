@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Pig Latin</title>
+</head>
+<body>
+	<script>
+	/*儿童黑话的规则是元音字母之前的字母移到最后面加ay，第一个就是元音字母就直接后面加way*/
+		function translatePigLatin(str) {
+			var test = ['a','e','i','o','u'];
+			var arr = str.split("");
+			var num =[];
+			test.forEach(function(item){
+				num.push(arr.indexOf(item));
+			})
+			var min =num.filter(function(item){
+				return item > -1;
+			}).sort(function(a,b){
+				return a-b;
+			})[0];
+			
+			if(min === 0){
+				str+='way';
+			}else{
+				str = str.slice(min)+str.substring(0,min)+'ay';
+			}
+		  	return str;
+		}
+
+		console.log(translatePigLatin("lixuhong")+' '+translatePigLatin("is")+' '+translatePigLatin("a")+' '+translatePigLatin("big")+' '+translatePigLatin("fool"))+'!';
+	</script>
+</body>
+</html>

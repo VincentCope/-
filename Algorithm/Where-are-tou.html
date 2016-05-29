@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Where are you</title>
+</head>
+<body>
+	<script>
+		function whereAreYou(collection, source) {
+  		// What's in a name?
+ 		var arr = [];
+  		// Only change code below this line
+  		var sou = Object.keys(source);	//将第二个对象属性转化为数组
+  		arr=collection.filter(function(obj){
+  			return sou.every(function(key){
+  				return obj.hasOwnProperty(key) && obj[key] === source[key];
+  			})
+  		})
+  		console.log(arr);
+
+  		// 数组的迭代方法：every和some会在任一项返回true时返回true，filter方法返回true的项
+  		return arr;
+		}
+
+		//whereAreYou([{ first: "Romeo", last: "Montague" }, { first: "Mercutio", last: null }, { first: "Tybalt", last: "Capulet" }], { last: "Capulet" });
+		whereAreYou([{ "a": 1, "b": 2 }, { "a": 1 }, { "a": 1, "b": 2, "c": 2 }], { "a": 1, "b": 2 });
+	</script>
+</body>
+</html>
