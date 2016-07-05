@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>弹出层组件</title>
+	<link rel="stylesheet" href="css/window.css">
+	<script src="js/require.js" data-main="js/main"></script>
+</head>
+<body>
+<div class="button-wrap">
+	<h1>Web弹窗组件(commen,alert,confirm,prompt)</h1>
+	<input type="button" value="alert" id="btn">
+	<input type="button" value="comfirm" id="confirmbtn">
+	<input type="button" value="prompt" id="prompt">
+	<input type="button" value="commen" id="commen">
+	<div class="introduce">
+		<p><b>技术：</b>利用了require.js来实现模块化引用，以jQuery和jQuery UI为基础层来实现弹窗组件；</p>
+		<p><b>组件介绍：</b>弹窗组件实现了四个组件功能，分别是commen(不含标题、脚部)，alert(模拟客户端原生alert)，confirm(模拟客户端原生confirm)和prompt(模拟与客户端原生prompt)；</p>
+		<p><b>使用方法：</b>
+			<ul>
+				<li><b>commen: </b>new w.Window().commen({配置项})</li>
+				<li><b>alert: </b>new w.Window().alert({配置项})</li>
+				<li><b>confirm: </b>new w.Window().confirm({配置项})</li>
+				<li><b>prompt: </b>new w.Window().prompt({配置项})</li>
+			</ul>
+
+			<b>配置项：</b>
+			<pre>
+			{
+			width: 500,		———— 弹出框宽度
+    		height:200,		———— 弹出框高度
+    		x: 500,			———— 距离左边的宽度
+    		y: 100,			———— 距离上边的高度
+            title: '系统消息',		———— 弹出框中的标题部分
+            content: 'Welcome!',	———— 内容区域
+            alertText: '确定',		———— alert组件中按钮文本
+            confirmBtn: '确定',		———— confirm组件中确定按钮文本
+            cancelBtn: '取消',		———— confirm组件中取消按钮文本
+            promSubmitBtn: '提交',	———— prompt组件中提交按钮文本
+            promCancelBtn: '取消',	———— prompt组件中取消文本
+            hasCloseBtn: true,		———— 是否有关闭按钮
+            hasMask: true,			———— 是否实现模态，即生成遮罩
+            isDraggable: true,		———— 能否拖拽
+
+            okHandler: null,		———— alert组件中按钮按下执行的回调
+
+            confirmHandler: null,	———— confirm组件中确定按钮按下执行的回调
+            cancelHandler: null,	———— confirm组件中取消按钮按下执行的回调
+
+            isPromPassword: false,	———— prompt组件中输入的是否为密码值
+            defaultPromValue: '',	———— 默认输入的值
+            promMaxLength: 10,		———— 输入最大长度
+            promSubmithandler: null,	———— prompt组件中提交按钮按下执行的回调
+            promCancelHandler: null,	———— prompt组件中取消按钮按下执行的回调
+
+            closeHandler: null,		———— 关闭按钮按下的回调
+            dragHandle: null,		———— 设定那个部分能够拖动
+            }
+			</pre>
+		</p>
+	</div>
+</div>
+</body>
+</html>
