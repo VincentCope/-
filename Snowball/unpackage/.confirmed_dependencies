@@ -1,0 +1,24 @@
+{
+  "index.html": {
+    "resources": [
+      "assets/images/background.png",
+      "assets/images/title.png",
+      "assets/images/star.png",
+      "assets/js/snow.js",
+      "assets/js/commonFunctions.js",
+      "assets/js/main.js",
+      "assets/js/snowball.js",
+      "assets/images/oldman.png",
+      "assets/images/background1.png",
+      "assets/images/background2.png",
+      "assets/music/bg.wav",
+      "assets/music/wind.wav",
+      "assets/music/btn.wav",
+      "assets/music/eat.wav",
+      "assets/images/morning.png",
+      "assets/images/evening.png",
+      "assets/images/night.png"
+    ],
+    "refer": []
+  }
+}

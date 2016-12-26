@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta name="format-detection" content="telephone=no">
+		<meta name="format-detection" content="email=no">
+		<!--清除缓存-微信调试-->
+		<meta http-equiv="Pragma" content="no-cache">
+		<meta http-equiv="Cache-Control" content="no-cache">
+		<meta http-equiv="Expires" content="0">
+		<title>圣诞雪球</title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			body {
+				font-family: helvetica;
+			}
+			
+			.wrap {
+				position: relative;
+			}
+			
+			.wrap canvas {
+				position: absolute;
+			}
+			
+			#canvas1 {
+				z-index: 1;
+			}
+			
+			#canvas2 {
+				z-index: -1;
+			}
+			
+			#startGame {
+				position: absolute;
+				z-index: 999;
+				top: 80%;
+				left: 50%;
+				margin-left: -21%;
+				border: none;
+				background-color: #428394;
+				height: 42px;
+				line-height: 42px;
+				width: 42%;
+				color: #fff;
+				font-size: 18px;
+				text-align: center;
+				text-shadow: 0 0 3px #15353e;
+				letter-spacing: 3px;
+				text-indent: 3px;
+				border-radius: 20px;
+				outline: none;
+				box-shadow: 0 0 10px 1px rgba(77, 164, 186, 0.5);
+			}
+			
+			#startGame:active {
+				background-color: #539caf;
+			}
+			#rules{
+				display: none;
+				position: absolute;
+				top:34%;
+				left:50%;
+				width:70%;
+				padding:10px 5%;
+				margin-left:-40%;
+				background-color:rgba(66, 131, 148, 0.5);
+				border: 3px solid #fff;
+				border-radius: 5px;
+				text-align: center;
+				color:#fff;
+			}
+			#rules h1{
+				font-size: 20px;
+				margin-bottom: 10px;
+			}
+			#rules p{
+				line-height: 26px;
+				margin-bottom: 5px;
+			}
+			#rules h2{
+				font-size: 50px;
+				line-height: 2;
+			}
+			#pause{
+				display: none;
+				position: absolute;
+				top:10px;
+				right:10px;
+				width: 46px;
+				height: 46px;
+				background-color: transparent;
+				border:none;
+				z-index: 999;
+				outline: none;
+				border-radius: 100%;
+			}
+			#pause:active{
+				background-color:rgba(255,255,255,.2);
+			}
+			#pause span{
+				display: block;
+				position: absolute;
+			}
+			span.slide1{
+				top: 8px;
+    			left: 13px;
+    			width: 5px;
+    			height: 30px;
+    			background-color: #fff;
+			}
+			span.slide2{
+				top: 8px;
+    			left: 27px;
+    			width: 5px;
+    			height: 30px;
+    			background-color: #fff;
+			}
+			span.angle1{
+				top: 8px;
+    			left: 15px;
+    			width: 0;
+    			height: 0;
+    			border-top: 15px solid transparent;
+    			border-left: 25px solid #fff;
+    			border-bottom: 15px solid transparent;
+			}
+			span.angle2{
+				display: none;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="wrap">
+			<canvas id="canvas1"></canvas>
+			<canvas id="canvas2"></canvas>
+		</div>
+		<audio id="musicbg" src="assets/music/bg.wav" loop="loop"></audio>
+		<audio id="musicbtn" src="assets/music/btn.wav"></audio>
+		<audio id="musicwind" src="assets/music/wind.wav" loop="loop"></audio>
+		<audio id="musiceat" src="assets/music/eat.wav"></audio>
+		<button id="startGame">开始游戏</button>
+		<div id="rules"></div>
+		<button id="pause">
+			<span class="slide1"></span>
+			<span class="slide2"></span>
+		</button>
+		<script src="assets/js/main.js"></script>
+		<script src="assets/js/snow.js"></script>
+		<script src="assets/js/snowball.js"></script>
+		<script>
+			var isStart = false,isPaused = false,bgimg,snowball,timer;
+			window.requestAnimFrame = (function() {
+				return window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || window.oRequestAnimationFrame || window.msRequestAnimationFrame ||
+					function( /* function FrameRequestCallback */ callback, /* DOMElement Element */ element) {
+						var timer = null;
+						return timer = setTimeout(callback, 1000 / 60);
+					};
+			})();
+			window.cancelAnimationFrame = (function () {
+				return window.cancelAnimationFrame || window.webkitCancelAnimationFrame || window.mozCancelRequestAnimationFrame
+			})();
+			window.onload = function() {
+				/*localStorage.clear();*/
+				var startGame = document.getElementById('startGame');
+				var musicbg = document.getElementById('musicbg');
+				var musicbtn = document.getElementById('musicbtn');
+				var musicwind = document.getElementById('musicwind');
+				var rules = document.getElementById('rules');
+				var pausebtn = document.getElementById('pause');
+				var spans = pausebtn.getElementsByTagName('span');
+				var cHours = new Date().getHours();
+				musicbg.play();
+				
+				bgimg = new Image();
+				bgimg.src = 'assets/images/morning.png';
+
+				bgimg.onload = function() {
+					// draw the background image
+					game.ctx2.drawImage(bgimg, 0, 0, game.platW, game.platH);
+				}
+				
+				if (game.hscore < 30) {
+					rules.innerHTML = '<h1>游戏规则</h1>'
+						+'<p>前后左右倾斜手机控制雪球移动;</p>'
+						+'<p>雪球触碰到白色雪花加一分，雪球重量增加雪花的重量;</p>'
+						+'<p>雪球触碰到红色雪花不加分，雪球重量减去自身重量的三分之一;</p>'
+						+'<p>雪球触碰到屏幕边缘，游戏结束。</p>'
+					rules.style.display = 'block';
+				}
+
+				game.init();
+
+				game.gameloop();
+
+				startGame.onclick = function() {
+					isStart = true;
+					
+					musicbg.pause();
+					musicbtn.play();
+					setTimeout(function () {
+						musicwind.play();
+					},500);
+					
+					this.style.display = 'none';
+					rules.style.display = 'none';
+					pausebtn.style.display = 'block';
+					
+					snowball = new ball();
+					snowball.ballX = game.platW / 2;
+					snowball.ballY = game.platH / 2;
+					snowball.ballSize = 30;
+					window.addEventListener('deviceorientation',controllBall,false);
+				}
+				
+				pausebtn.onclick = function () {
+					if (!isPaused) {
+						isPaused = true;
+						spans[0].className = 'angle1';
+						spans[1].className = 'angle2';
+						musicwind.pause();
+						window.removeEventListener('deviceorientation',controllBall,false);
+					} else {
+						isPaused = false;
+						spans[0].className = 'slide1';
+						spans[1].className = 'slide2';
+						game.gameloop();
+						musicwind.play();
+						window.addEventListener('deviceorientation',controllBall,false);
+					}
+				}
+			}
+			
+			function controllBall(e) {
+				var alpha = e.alpha,
+					beta = e.beta,
+					gamma = e.gamma;
+				
+				if (!snowball) return;
+				
+				snowball.ballX += Math.floor(gamma / 2);
+				snowball.ballY += Math.floor(beta / 2);
+			
+				snowball.judjePosition(snowball.ballX, snowball.ballY, snowball.ballSize, game.platW, game.platH);
+			}
+			
+		</script>
+	</body>
+
+</html>
